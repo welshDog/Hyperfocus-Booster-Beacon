@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus Booster Beacon</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Background particles -->
+        <div class="particles" id="particles"></div>
+        
+        <!-- Header -->
+        <header class="header">
+            <h1 class="header-title">
+                <span class="glow-text">FOCUS BOOSTER BEACON</span>
+            </h1>
+            <p class="header-subtitle">Activate Your Hyperfocus Zone</p>
+        </header>
+
+        <!-- Main beacon area -->
+        <div class="beacon-container">
+            <div class="beacon-outer-ring">
+                <div class="beacon-middle-ring">
+                    <div class="beacon-inner-ring">
+                        <button class="beacon-core" id="beaconCore">
+                            <div class="beacon-pulse"></div>
+                            <div class="beacon-center">
+                                <span class="beacon-text">ACTIVATE</span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Status display -->
+            <div class="status-display" id="statusDisplay">
+                <div class="status-text">READY TO ENGAGE</div>
+                <div class="timer-display" id="timerDisplay">00:00</div>
+            </div>
+        </div>
+
+        <!-- Control panels -->
+        <div class="control-panels">
+            <!-- Left panel - Audio controls -->
+            <div class="control-panel left-panel">
+                <h3 class="panel-title">AUDIO MATRIX</h3>
+                
+                <div class="control-section">
+                    <label class="control-label">Binaural Beats</label>
+                    <div class="frequency-presets">
+                        <button class="preset-btn" data-freq="16">Beta (16Hz)</button>
+                        <button class="preset-btn" data-freq="10">Alpha (10Hz)</button>
+                        <button class="preset-btn" data-freq="40">Gamma (40Hz)</button>
+                    </div>
+                    <div class="slider-group">
+                        <label>Base Freq: <span id="baseFreqValue">440</span>Hz</label>
+                        <input type="range" id="baseFreq" min="90" max="150" value="440" class="slider">
+                    </div>
+                    <div class="slider-group">
+                        <label>Beat Freq: <span id="beatFreqValue">10</span>Hz</label>
+                        <input type="range" id="beatFreq" min="1" max="50" value="10" class="slider">
+                    </div>
+                    <div class="slider-group">
+                        <label>Volume: <span id="volumeValue">50</span>%</label>
+                        <input type="range" id="volume" min="0" max="100" value="50" class="slider">
+                    </div>
+                </div>
+
+                <div class="control-section">
+                    <label class="control-label">Ambient Sounds</label>
+                    <div class="sound-grid">
+                        <button class="sound-btn" data-sound="rain">Rain</button>
+                        <button class="sound-btn" data-sound="waves">Waves</button>
+                        <button class="sound-btn" data-sound="forest">Forest</button>
+                        <button class="sound-btn" data-sound="cafe">Cafe</button>
+                        <button class="sound-btn" data-sound="white">White Noise</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right panel - Visual & Session controls -->
+            <div class="control-panel right-panel">
+                <h3 class="panel-title">VISUAL NEXUS</h3>
+                
+                <div class="control-section">
+                    <label class="control-label">Environment</label>
+                    <div class="environment-grid">
+                        <button class="env-btn" data-env="space">Deep Space</button>
+                        <button class="env-btn" data-env="neon">Neon City</button>
+                        <button class="env-btn" data-env="forest">Forest Depths</button>
+                        <button class="env-btn" data-env="ocean">Ocean Flow</button>
+                    </div>
+                </div>
+
+                <div class="control-section">
+                    <label class="control-label">Breathing Guide</label>
+                    <div class="breathing-container">
+                        <div class="breathing-circle" id="breathingCircle">
+                            <span class="breathing-text" id="breathingText">Ready</span>
+                        </div>
+                        <button class="btn btn--secondary" id="breathingToggle">Start Breathing</button>
+                    </div>
+                </div>
+
+                <div class="control-section">
+                    <label class="control-label">Session Timer</label>
+                    <div class="timer-presets">
+                        <button class="timer-btn" data-time="15">15 min</button>
+                        <button class="timer-btn" data-time="25">25 min</button>
+                        <button class="timer-btn" data-time="45">45 min</button>
+                        <button class="timer-btn" data-time="90">90 min</button>
+                    </div>
+                </div>
+
+                <div class="control-section">
+                    <label class="control-label">Micro Tasks</label>
+                    <div class="task-buttons">
+                        <button class="task-btn" data-task="pattern">Pattern Match</button>
+                        <button class="task-btn" data-task="memory">Memory Flash</button>
+                        <button class="task-btn" data-task="color">Color Switch</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Micro task overlay -->
+        <div class="modal hidden" id="taskModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="taskTitle">Micro Task</h3>
+                    <button class="close-btn" id="closeTask">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="taskContent"></div>
+                    <div class="task-timer">Time: <span id="taskTimer">30</span>s</div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn--primary" id="completeTask">Complete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
